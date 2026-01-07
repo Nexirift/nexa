@@ -1,0 +1,10 @@
+services:
+  nexa:
+    image: ghcr.io/nexirift/nexa:latest
+    build: .
+    container_name: nexa
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data

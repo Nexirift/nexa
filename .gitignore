@@ -54,3 +54,4 @@ __fixtures__/custom-modules-dir/patches/
 
 # Custom
 data
+.env
