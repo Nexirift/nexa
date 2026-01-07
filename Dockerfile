@@ -14,7 +14,8 @@ RUN apt-get update && \
     # Ensure config files exist
     [ -f /etc/clamav/clamd.conf ] || cp /etc/clamav/clamd.conf.sample /etc/clamav/clamd.conf && \
     [ -f /etc/clamav/freshclam.conf ] || cp /etc/clamav/freshclam.conf.sample /etc/clamav/freshclam.conf && \
-    chown -R appuser:appuser /var/log/clamav /var/lib/clamav /etc/clamav
+    mkdir -p /var/log/clamav /var/lib/clamav /var/run/clamav && \
+    chown -R appuser:appuser /var/log/clamav /var/lib/clamav /etc/clamav /var/run/clamav
 
 COPY . /app
 WORKDIR /app

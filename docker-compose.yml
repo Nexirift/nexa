@@ -1,6 +1,6 @@
 services:
   nexa:
-    image: ghcr.io/nexirift/nexa:latest
+    image: ghcr.io/nexirift/nexa:develop
     build: .
     container_name: nexa
     restart: unless-stopped
@@ -8,3 +8,4 @@ services:
       - .env
     volumes:
       - ./data:/app/data
+      - ./data/clamav:/var/lib/clamav
