@@ -863,42 +863,42 @@ export class VirusDetectionService {
         const pathname = urlObj.pathname.toLowerCase();
 
         // Check for URL shorteners (can hide malicious links)
-        if (
-          this.config.linkScanning.checkUrlShorteners &&
-          this.config.linkScanning.urlShortenerDomains?.some((s) =>
-            domain.includes(s),
-          )
-        ) {
-          threats.push(`URL shortener (potential malware hiding): ${url}`);
-        }
+        // if (
+        //   this.config.linkScanning.checkUrlShorteners &&
+        //   this.config.linkScanning.urlShortenerDomains?.some((s) =>
+        //     domain.includes(s),
+        //   )
+        // ) {
+        //   threats.push(`URL shortener (potential malware hiding): ${url}`);
+        // }
 
         // Check for free/suspicious TLDs
-        if (
-          this.config.linkScanning.checkSuspiciousTlds &&
-          this.config.linkScanning.suspiciousTlds?.some((tld) =>
-            domain.endsWith(tld),
-          )
-        ) {
-          threats.push(`Suspicious TLD: ${url}`);
-        }
+        // if (
+        //   this.config.linkScanning.checkSuspiciousTlds &&
+        //   this.config.linkScanning.suspiciousTlds?.some((tld) =>
+        //     domain.endsWith(tld),
+        //   )
+        // ) {
+        //   threats.push(`Suspicious TLD: ${url}`);
+        // }
 
         // Check for malware-related keywords in URL
-        if (this.config.linkScanning.malwareKeywords) {
-          for (const pattern of this.config.linkScanning.malwareKeywords) {
-            if (pattern.test(url)) {
-              threats.push(`Malware-related URL pattern: ${url}`);
-              break;
-            }
-          }
-        }
+        // if (this.config.linkScanning.malwareKeywords) {
+        //   for (const pattern of this.config.linkScanning.malwareKeywords) {
+        //     if (pattern.test(url)) {
+        //       threats.push(`Malware-related URL pattern: ${url}`);
+        //       break;
+        //     }
+        //   }
+        // }
 
         // Check for IP addresses (often used for malware C2)
-        if (
-          this.config.linkScanning.checkIpAddresses &&
-          /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/.test(domain)
-        ) {
-          threats.push(`IP address URL (potential C2): ${url}`);
-        }
+        // if (
+        //   this.config.linkScanning.checkIpAddresses &&
+        //   /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/.test(domain)
+        // ) {
+        //   threats.push(`IP address URL (potential C2): ${url}`);
+        // }
 
         // Check for suspicious file downloads
         if (this.config.linkScanning.checkExecutableDownloads) {
