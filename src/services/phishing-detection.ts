@@ -230,22 +230,22 @@ export class PhishingDetectionService {
         }
       }
 
-      // Phishing-related subdomains
-      const phishingSubdomains = [
-        /^(verify|secure|login|account|update|confirm|validate)\./i,
-        /^(signin|auth|authentication|password|reset)\./i,
-        /^(support|help|security|billing|payment)\./i,
-      ];
+      // // Phishing-related subdomains
+      // const phishingSubdomains = [
+      //   /^(verify|secure|login|account|update|confirm|validate)\./i,
+      //   /^(signin|auth|authentication|password|reset)\./i,
+      //   /^(support|help|security|billing|payment)\./i,
+      // ];
 
-      for (const pattern of phishingSubdomains) {
-        if (pattern.test(domain)) {
-          return {
-            isPhishing: true,
-            reason: `Suspicious subdomain: ${domain}`,
-            score: 2,
-          };
-        }
-      }
+      // for (const pattern of phishingSubdomains) {
+      //   if (pattern.test(domain)) {
+      //     return {
+      //       isPhishing: true,
+      //       reason: `Suspicious subdomain: ${domain}`,
+      //       score: 2,
+      //     };
+      //   }
+      // }
 
       // Check for excessive subdomains (hiding real domain)
       const parts = domain.split(".");
